@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+#items-wrapper {
+  width: 100vw;
+  /*Ele vai ocupar o espaço inteiro da tela*/
+}
+
+#items {
+  display: flex;
+  
+  overflow-x: auto;
+  
+  /*Essa propriedade precisa ir no pai*/
+  scroll-snap-type: x mandatory;
+  /*qual o tipo do scroll, eu quero que ele faça no eixo "x",
+    "mandatory" e quer dizer que ele vai ser obrigatorio 
+  */
+  -webkit-overflow-scrolling: touch;
+  /*para que funcione em alguns navegadores de dispositivos*/
+  scroll-behavior: smooth;
+  /*Essa propriedade e o comportamento do scroll do mouse...*/
+}
+
+.item {
+  flex: none;
+  /*Ele vai disabilitar todos os alargamentos do flex*/
+  width: 100%;
+  height: 400px;
+  
+  scroll-snap-align: start;
+  /*start quer dizer que ele vai alinhar no começa da imagem*/
+  
+  pointer-events: none;
+  /*ele vai desabilitar o event do js, agora o evento vai pro pai*/
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  
+  object-fit: cover;
+}
